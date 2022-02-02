@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using AspStoreBackend.Models;
 
 namespace AspStoreBackend.Models
 {
@@ -62,6 +63,8 @@ namespace AspStoreBackend.Models
     }
 
 
+
+
     public class StoreContext : DbContext
     {
         
@@ -70,5 +73,7 @@ namespace AspStoreBackend.Models
         public DbSet<Customer> customer { get; set; }
         public DbSet<Cart> cart { get; set; }
         public DbSet<Sales> sales { get; set; }
+        public DbSet<LocationModel> location { get; set; }
+        public DbSet<HoursModel> hours { get; set; }    
     }
 }
