@@ -24,6 +24,9 @@ namespace AspStoreBackend.Controllers
             return db.categories;
         }
 
+       
+
+
         // GET: api/Categories/5
         [ResponseType(typeof(Category))]
         public IHttpActionResult GetCategory(int id)

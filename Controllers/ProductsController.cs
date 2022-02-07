@@ -14,6 +14,7 @@ using AspStoreBackend.Models;
 namespace AspStoreBackend.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("Products")]
     public class ProductsController : ApiController
     {
         private StoreContext db = new StoreContext();
@@ -22,6 +23,12 @@ namespace AspStoreBackend.Controllers
         public IQueryable<Products> Getproducts()
         {
             return db.products;
+        }
+
+        [Route("ProductByCateogry")]
+        public IHttpActionResult GetProductsByCategory(int id)
+        {
+            return Ok(db.products.Where(x=>x.catId==id).ToList());
         }
 
         // GET: api/Products/5
@@ -36,6 +43,11 @@ namespace AspStoreBackend.Controllers
 
             return Ok(products);
         }
+
+
+
+
+
 
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
