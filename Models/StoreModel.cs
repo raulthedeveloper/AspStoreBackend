@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace AspStoreBackend.Models
         public string name { get; set; }
         public string description { get; set; }
         public string image { get; set; }
+        
     }
 
 
@@ -30,7 +32,9 @@ namespace AspStoreBackend.Models
 
         public int price { get; set; }
         public int quantity { get; set; }
+        
     }
+
 
     public class Sales
     {
@@ -39,6 +43,7 @@ namespace AspStoreBackend.Models
         public int prodId { get; set; }
         public Products product { get; set; }
         public int price { get; set; }
+        
     }
 
     public class Customer
@@ -46,7 +51,7 @@ namespace AspStoreBackend.Models
         public int id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
-
+        
 
     }
 
@@ -74,6 +79,7 @@ namespace AspStoreBackend.Models
         public DbSet<Cart> cart { get; set; }
         public DbSet<Sales> sales { get; set; }
         public DbSet<LocationModel> location { get; set; }
-        public DbSet<HoursModel> hours { get; set; }    
+        public DbSet<HoursModel> hours { get; set; }  
+        public DbSet<UnitedStates> UnitedStates { get; set; }
     }
 }

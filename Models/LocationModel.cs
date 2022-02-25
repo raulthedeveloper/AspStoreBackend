@@ -10,6 +10,9 @@ namespace AspStoreBackend.Models
     {
         public int Id { get; set; }
         public string address { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }   
+        public int postalCode { get; set; }
     }
 
     public class HoursModel
@@ -27,5 +30,12 @@ namespace AspStoreBackend.Models
         public string Thursday { get; set; }
         public string Friday { get; set; }
         public string Saturday { get; set; }
+    }
+
+    public class UnitedStates
+    {
+        public int Id { get; set; }
+        public string stateCode { get; set; }
+        public string stateName { get; set;}
     }
 }

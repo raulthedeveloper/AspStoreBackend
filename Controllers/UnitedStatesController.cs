@@ -7,53 +7,49 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using AspStoreBackend.Models;
 
 namespace AspStoreBackend.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-
-    public class SalesController : ApiController
+    public class UnitedStatesController : ApiController
     {
-
         private StoreContext db = new StoreContext();
 
-        // GET: api/Sales
-        public IQueryable<Sales> Getsales()
+        // GET: api/UnitedStates
+        public IQueryable<UnitedStates> GetUnitedStates()
         {
-            return db.sales.Include(e => e.product);
+            return db.UnitedStates;
         }
 
-        // GET: api/Sales/5
-        [ResponseType(typeof(Sales))]
-        public IHttpActionResult GetSales(int id)
+        // GET: api/UnitedStates/5
+        [ResponseType(typeof(UnitedStates))]
+        public IHttpActionResult GetUnitedStates(int id)
         {
-            Sales sales = db.sales.Find(id);
-            if (sales == null)
+            UnitedStates unitedStates = db.UnitedStates.Find(id);
+            if (unitedStates == null)
             {
                 return NotFound();
             }
 
-            return Ok(sales);
+            return Ok(unitedStates);
         }
 
-        // PUT: api/Sales/5
+        // PUT: api/UnitedStates/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSales(int id, Sales sales)
+        public IHttpActionResult PutUnitedStates(int id, UnitedStates unitedStates)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != sales.id)
+            if (id != unitedStates.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(sales).State = EntityState.Modified;
+            db.Entry(unitedStates).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +57,7 @@ namespace AspStoreBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SalesExists(id))
+                if (!UnitedStatesExists(id))
                 {
                     return NotFound();
                 }
@@ -74,35 +70,35 @@ namespace AspStoreBackend.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Sales
-        [ResponseType(typeof(Sales))]
-        public IHttpActionResult PostSales(Sales sales)
+        // POST: api/UnitedStates
+        [ResponseType(typeof(UnitedStates))]
+        public IHttpActionResult PostUnitedStates(UnitedStates unitedStates)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.sales.Add(sales);
+            db.UnitedStates.Add(unitedStates);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = sales.id }, sales);
+            return CreatedAtRoute("DefaultApi", new { id = unitedStates.Id }, unitedStates);
         }
 
-        // DELETE: api/Sales/5
-        [ResponseType(typeof(Sales))]
-        public IHttpActionResult DeleteSales(int id)
+        // DELETE: api/UnitedStates/5
+        [ResponseType(typeof(UnitedStates))]
+        public IHttpActionResult DeleteUnitedStates(int id)
         {
-            Sales sales = db.sales.Find(id);
-            if (sales == null)
+            UnitedStates unitedStates = db.UnitedStates.Find(id);
+            if (unitedStates == null)
             {
                 return NotFound();
             }
 
-            db.sales.Remove(sales);
+            db.UnitedStates.Remove(unitedStates);
             db.SaveChanges();
 
-            return Ok(sales);
+            return Ok(unitedStates);
         }
 
         protected override void Dispose(bool disposing)
@@ -114,9 +110,9 @@ namespace AspStoreBackend.Controllers
             base.Dispose(disposing);
         }
 
-        private bool SalesExists(int id)
+        private bool UnitedStatesExists(int id)
         {
-            return db.sales.Count(e => e.id == id) > 0;
+            return db.UnitedStates.Count(e => e.Id == id) > 0;
         }
     }
 }

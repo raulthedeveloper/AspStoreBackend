@@ -22,7 +22,7 @@ namespace AspStoreBackend.Controllers
         // GET: api/Products
         public IQueryable<Products> Getproducts()
         {
-            return db.products;
+            return db.products.Include(e => e.category);
         }
 
         [Route("ProductByCateogry")]
@@ -31,6 +31,7 @@ namespace AspStoreBackend.Controllers
             return Ok(db.products.Where(x=>x.catId==id).ToList());
         }
 
+        
         // GET: api/Products/5
         [ResponseType(typeof(Products))]
         public IHttpActionResult GetProducts(int id)

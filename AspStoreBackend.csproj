@@ -222,6 +222,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\UnitedStatesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +234,22 @@
     <Compile Include="Migrations\202202020253316_added locations.cs" />
     <Compile Include="Migrations\202202020253316_added locations.designer.cs">
       <DependentUpon>202202020253316_added locations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202092047303_updated location table.cs" />
+    <Compile Include="Migrations\202202092047303_updated location table.designer.cs">
+      <DependentUpon>202202092047303_updated location table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202092108126_added timestamp.cs" />
+    <Compile Include="Migrations\202202092108126_added timestamp.designer.cs">
+      <DependentUpon>202202092108126_added timestamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202092143397_removed time.cs" />
+    <Compile Include="Migrations\202202092143397_removed time.designer.cs">
+      <DependentUpon>202202092143397_removed time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202102114179_Added UnitedState.cs" />
+    <Compile Include="Migrations\202202102114179_Added UnitedState.designer.cs">
+      <DependentUpon>202202102114179_Added UnitedState.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -339,6 +356,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202020253316_added locations.resx">
       <DependentUpon>202202020253316_added locations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202092047303_updated location table.resx">
+      <DependentUpon>202202092047303_updated location table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202092108126_added timestamp.resx">
+      <DependentUpon>202202092108126_added timestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202092143397_removed time.resx">
+      <DependentUpon>202202092143397_removed time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202102114179_Added UnitedState.resx">
+      <DependentUpon>202202102114179_Added UnitedState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

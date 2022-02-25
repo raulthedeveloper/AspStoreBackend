@@ -7,11 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using AspStoreBackend.Models;
 
 namespace AspStoreBackend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class StoreController : ApiController
     {
         private StoreContext db = new StoreContext();

@@ -5,6 +5,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using System.Web.Http.Cors;
+
 
 namespace AspStoreBackend
 {
@@ -12,7 +14,8 @@ namespace AspStoreBackend
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors();
+            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:4200", "*", "GET,POST,PUT,DELETE");
+            config.EnableCors(cors);
 
 
 

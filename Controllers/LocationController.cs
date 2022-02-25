@@ -7,22 +7,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using AspStoreBackend.Models;
 
 namespace AspStoreBackend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class LocationController : ApiController
     {
         private StoreContext db = new StoreContext();
 
-        // GET: api/LocationModels
+        // GET: api/Location
         public IQueryable<LocationModel> Getlocation()
         {
             return db.location;
         }
 
-        // GET: api/LocationModels/5
+        // GET: api/Location/5
         [ResponseType(typeof(LocationModel))]
         public IHttpActionResult GetLocationModel(int id)
         {
@@ -35,7 +38,7 @@ namespace AspStoreBackend.Controllers
             return Ok(locationModel);
         }
 
-        // PUT: api/LocationModels/5
+        // PUT: api/Location/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutLocationModel(int id, LocationModel locationModel)
         {
@@ -70,7 +73,7 @@ namespace AspStoreBackend.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/LocationModels
+        // POST: api/Location
         [ResponseType(typeof(LocationModel))]
         public IHttpActionResult PostLocationModel(LocationModel locationModel)
         {
@@ -85,7 +88,7 @@ namespace AspStoreBackend.Controllers
             return CreatedAtRoute("DefaultApi", new { id = locationModel.Id }, locationModel);
         }
 
-        // DELETE: api/LocationModels/5
+        // DELETE: api/Location/5
         [ResponseType(typeof(LocationModel))]
         public IHttpActionResult DeleteLocationModel(int id)
         {
