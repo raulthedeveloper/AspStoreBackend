@@ -251,6 +251,14 @@
     <Compile Include="Migrations\202202102114179_Added UnitedState.designer.cs">
       <DependentUpon>202202102114179_Added UnitedState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203141917458_added cartId.cs" />
+    <Compile Include="Migrations\202203141917458_added cartId.designer.cs">
+      <DependentUpon>202203141917458_added cartId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203141921598_cartId to string.cs" />
+    <Compile Include="Migrations\202203141921598_cartId to string.designer.cs">
+      <DependentUpon>202203141921598_cartId to string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -368,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202102114179_Added UnitedState.resx">
       <DependentUpon>202202102114179_Added UnitedState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203141917458_added cartId.resx">
+      <DependentUpon>202203141917458_added cartId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203141921598_cartId to string.resx">
+      <DependentUpon>202203141921598_cartId to string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

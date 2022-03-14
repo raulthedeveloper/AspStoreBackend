@@ -39,6 +39,25 @@ namespace AspStoreBackend.Controllers
             return Ok(sales);
         }
 
+        [HttpGet]
+        //Will contain authorized admin id in update
+        [Route("sales-report")]
+        public IHttpActionResult GetSalesReport()
+        {
+             object customerPurchases =
+               from cart in db.cart
+               join customer in db.customer on cart.custId equals customer.id
+               join product in db.products on cart.prodId equals product.id
+               select new { 
+                    cartId = cart.id,
+                    customerName = customer.first_name + " " + customer.last_name,
+                    productName = product.name,
+                    productPrice = product.price,
+               };
+
+            return Ok(db.customer);
+        }
+
         // PUT: api/Sales/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSales(int id, Sales sales)

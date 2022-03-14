@@ -58,6 +58,7 @@ namespace AspStoreBackend.Models
     public class Cart
     {
         public int id { get; set; }
+        public string cartId { get; set; }
         [ForeignKey("customer")]
         public int custId { get; set; }
         public Customer customer { get; set; }

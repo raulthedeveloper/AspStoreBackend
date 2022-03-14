@@ -74,17 +74,33 @@ namespace AspStoreBackend.Controllers
 
         // POST: api/Carts
         [ResponseType(typeof(Cart))]
-        public IHttpActionResult PostCart(Cart cart)
+        public IHttpActionResult PostCart(Cart[] cart)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.cart.Add(cart);
-            db.SaveChanges();
+            DateTime date = DateTime.Now;
 
-            return CreatedAtRoute("DefaultApi", new { id = cart.id }, cart);
+            Random rnd = new Random();
+            int number = rnd.Next(1000000, 3000000);
+            string n = date.ToString("yyyyMMddHH");
+
+            foreach (Cart item in cart)
+            {
+                item.cartId = item.custId + n + number;
+
+                db.cart.Add(item);
+                db.SaveChanges();
+
+
+            }
+
+            return StatusCode(HttpStatusCode.OK);
+
+
+
         }
 
         // DELETE: api/Carts/5

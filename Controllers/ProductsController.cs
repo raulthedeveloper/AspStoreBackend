@@ -25,10 +25,34 @@ namespace AspStoreBackend.Controllers
             return db.products.Include(e => e.category);
         }
 
-        [Route("ProductByCateogry")]
+        [Route("ProductByCategory/{id}")]
         public IHttpActionResult GetProductsByCategory(int id)
         {
             return Ok(db.products.Where(x=>x.catId==id).ToList());
+        }
+
+        [Route("ProductsPage/{catId}/{currentPage}")]
+        
+        public IHttpActionResult GetProductsPage(int catId, int currentPage)
+        {
+            // Improve Pagination for category pages
+            int pageSize = 3;
+
+            List<Products> products = db.products.Where(e => e.catId == catId).OrderBy(e => e.id).Skip(pageSize * currentPage).Take(pageSize).ToList();
+
+            if (products.Count() < pageSize)
+            {
+                products.Count();
+
+               return Ok(db.products.Where(e => e.catId == catId).OrderBy(e => e.id).ToList().Last());
+            }
+            else
+            {
+                products.Count();
+               return Ok(products);
+            }
+            
+
         }
 
         

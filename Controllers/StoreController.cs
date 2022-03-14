@@ -21,9 +21,25 @@ namespace AspStoreBackend.Controllers
 
 
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<object> Get()
         {
-            return new string[] { "value1", "value2" };
+
+            object StoreProducts = db.products.Join(
+                db.categories,
+                product => product.catId,
+                category => category.id,
+                (product,category) => new
+                {
+                    catId = category.id,
+                    catName = category.name,
+                    id = product.id,
+                    name = product.name,
+                    image = product.image,
+                    price = product.price,
+                }
+                ).GroupBy(x => x.catId, (key,g) => g.Take(9)).ToList();
+
+            return (IEnumerable<object>)StoreProducts;
         }
 
         // GET api/values/5
@@ -31,6 +47,8 @@ namespace AspStoreBackend.Controllers
         {
             return "value";
         }
+
+
 
         // POST api/values
         public void Post([FromBody] string value)
